@@ -1,0 +1,25 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+instance_class: F4
+
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+- url: /bootstrap
+  static_dir: bootstrap
+- url: /.*
+  script: app.app
+libraries:
+- name: numpy
+  version: latest
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: latest
+- name: ssl
+  version: latest
+env_variables:
+  GAE_USE_SOCKETS_HTTPLIB : 'true'
